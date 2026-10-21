@@ -61,8 +61,8 @@ export default function EnquiryForm({
     const fallbackRef = `COW-${Math.floor(100000 + Math.random() * 900000)}`;
 
     try {
-      // Send directly to Next.js API route which forwards to GoHighLevel (GHL)
-      const res = await fetch("/api/enquiry", {
+      // 1. Forward directly to GoHighLevel Contacts API via backend endpoint
+      const apiPromise = fetch("/api/enquiry", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -75,10 +75,14 @@ export default function EnquiryForm({
         }),
       });
 
-      const data = await res.json();
+      // 2. Ensure external-tracking.js has a small buffer to complete its POST /external-tracking/events network request
+      const bufferPromise = new Promise((resolve) => setTimeout(resolve, 650));
+
+      const [res] = await Promise.all([apiPromise, bufferPromise]);
+      const data = await res.json().catch(() => null);
       const refId = (res.ok && data?.referenceId) ? data.referenceId : fallbackRef;
 
-      // Direct instant redirection to Thank You page (no inline form state)
+      // Direct redirection to Thank You page
       window.location.assign(
         `/thank-you?ref=${encodeURIComponent(refId)}&name=${encodeURIComponent(
           fullName
@@ -86,7 +90,7 @@ export default function EnquiryForm({
       );
     } catch (err) {
       console.error("Submission error:", err);
-      // Even on network error, redirect directly to Thank You page
+      // Redirect to Thank You page even if backend fails
       window.location.assign(
         `/thank-you?ref=${encodeURIComponent(fallbackRef)}&name=${encodeURIComponent(
           fullName
@@ -106,7 +110,15 @@ export default function EnquiryForm({
       {/* Decorative top orange indicator */}
       <div className="absolute -top-px left-8 right-8 h-1 bg-gradient-to-r from-transparent via-[#FF5A1F] to-transparent" />
 
-      <form onSubmit={handleSubmit} className="space-y-4">
+      <form
+        name="enquiry_form"
+        id="cowrin-enquiry-form"
+        onSubmit={handleSubmit}
+        className="space-y-4"
+      >
+        {/* Hidden field for GHL external tracking script contact mapping */}
+        <input type="hidden" name="course" value={interestedCourse} />
+
         {/* Form Header */}
         <div className="space-y-1">
           <h3 className="text-xl sm:text-2xl font-bold text-white tracking-tight">
@@ -126,12 +138,15 @@ export default function EnquiryForm({
 
         {/* Full Name */}
         <div className="space-y-1 text-left">
-          <label className="block text-xs font-semibold text-slate-300">
+          <label htmlFor="cowrin-name" className="block text-xs font-semibold text-slate-300">
             Full Name <span className="text-[#FF5A1F]">*</span>
           </label>
           <input
+            id="cowrin-name"
+            name="name"
             type="text"
             required
+            autoComplete="name"
             value={fullName}
             onChange={(e) => setFullName(e.target.value)}
             placeholder="Enter your full name"
@@ -141,12 +156,15 @@ export default function EnquiryForm({
 
         {/* Email Address */}
         <div className="space-y-1 text-left">
-          <label className="block text-xs font-semibold text-slate-300">
+          <label htmlFor="cowrin-email" className="block text-xs font-semibold text-slate-300">
             Email Address <span className="text-[#FF5A1F]">*</span>
           </label>
           <input
+            id="cowrin-email"
+            name="email"
             type="email"
             required
+            autoComplete="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             placeholder="Enter your email address"
@@ -156,12 +174,15 @@ export default function EnquiryForm({
 
         {/* Phone Number */}
         <div className="space-y-1 text-left">
-          <label className="block text-xs font-semibold text-slate-300">
+          <label htmlFor="cowrin-phone" className="block text-xs font-semibold text-slate-300">
             Phone Number <span className="text-[#FF5A1F]">*</span>
           </label>
           <input
+            id="cowrin-phone"
+            name="phone"
             type="tel"
             required
+            autoComplete="tel"
             value={phone}
             onChange={(e) => setPhone(e.target.value)}
             placeholder="Enter your phone number"

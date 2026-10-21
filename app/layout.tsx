@@ -54,6 +54,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${geistSans.variable} ${geistMono.variable} scroll-smooth antialiased`}>
+      <head>
+        {/* GoHighLevel (GHL) External Tracking Script */}
+        <script
+          src="https://link.pandaece.com/js/external-tracking.js"
+          data-tracking-id="tk_b72f7dd08ea146648f45459dab2b7700"
+          data-debug="true"
+        />
+      </head>
       <body className="min-h-screen flex flex-col bg-[#050505] text-white selection:bg-[#FF5A1F] selection:text-white">
         {children}
       </body>

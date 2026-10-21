@@ -1,10 +1,9 @@
 "use client";
 
-import React, { useRef, useEffect } from "react";
-import { Star, CheckCircle2, Sparkles, ChevronLeft, ChevronRight } from "lucide-react";
+import React from "react";
+import { Star, CheckCircle2, Sparkles } from "lucide-react";
 
 export default function TestimonialsSection() {
-  const scrollContainerRef = useRef<HTMLDivElement>(null);
 
   const testimonials = [
     {
@@ -119,14 +118,6 @@ export default function TestimonialsSection() {
     },
   ];
 
-  // Manual scroll controls for interactive navigation
-  const scroll = (direction: "left" | "right") => {
-    if (scrollContainerRef.current) {
-      const scrollAmount = direction === "left" ? -420 : 420;
-      scrollContainerRef.current.scrollBy({ left: scrollAmount, behavior: "smooth" });
-    }
-  };
-
   return (
     <section id="reviews" className="py-20 sm:py-28 bg-[#0B0B0B] text-white relative overflow-hidden bg-grid-dark border-t border-white/10">
       {/* Inline styles for guaranteed CSS animation across all bundlers */}
@@ -160,7 +151,7 @@ export default function TestimonialsSection() {
       {/* Background ambient glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[350px] bg-[#FF5A1F]/10 rounded-full blur-[140px] pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 mb-12 text-center space-y-3">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 mb-10 text-center space-y-3">
         {/* Eyebrow */}
         <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-black tracking-widest uppercase bg-[#FF5A1F]/10 border border-[#FF5A1F]/30 text-[#FF5A1F]">
           <Sparkles className="w-3.5 h-3.5" />
@@ -177,32 +168,10 @@ export default function TestimonialsSection() {
         <p className="text-sm sm:text-base text-slate-400 max-w-2xl mx-auto font-normal">
           Hear how students, freshers, and career switchers built their foundational knowledge of hospital billing, insurance, and revenue cycle operations.
         </p>
-
-        {/* Manual Arrow Controls */}
-        <div className="flex items-center justify-center gap-3 pt-2">
-          <button
-            onClick={() => scroll("left")}
-            className="w-9 h-9 rounded-full bg-white/5 hover:bg-white/15 border border-white/10 text-white flex items-center justify-center transition-all cursor-pointer hover:border-[#FF5A1F]/50"
-            aria-label="Previous Testimonials"
-          >
-            <ChevronLeft className="w-4 h-4" />
-          </button>
-          <span className="text-xs text-slate-400 font-medium">Auto-scrolling &bull; Hover to pause</span>
-          <button
-            onClick={() => scroll("right")}
-            className="w-9 h-9 rounded-full bg-white/5 hover:bg-white/15 border border-white/10 text-white flex items-center justify-center transition-all cursor-pointer hover:border-[#FF5A1F]/50"
-            aria-label="Next Testimonials"
-          >
-            <ChevronRight className="w-4 h-4" />
-          </button>
-        </div>
       </div>
 
       {/* Single-Row Auto-scrolling Marquee */}
-      <div
-        ref={scrollContainerRef}
-        className="relative overflow-hidden w-full py-4 select-none"
-      >
+      <div className="relative overflow-hidden w-full py-4 select-none">
         {/* Left & Right gradient edge masks */}
         <div className="pointer-events-none absolute left-0 top-0 bottom-0 z-20 w-16 sm:w-32 bg-gradient-to-r from-[#0B0B0B] to-transparent" />
         <div className="pointer-events-none absolute right-0 top-0 bottom-0 z-20 w-16 sm:w-32 bg-gradient-to-l from-[#0B0B0B] to-transparent" />

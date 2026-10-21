@@ -1,0 +1,147 @@
+@import "tailwindcss";
+
+:root {
+  --background: #050505;
+  --foreground: #ffffff;
+  --cowrin-orange: #FF5A1F;
+  --cowrin-orange-hover: #E14B16;
+  --cowrin-dark: #0B0B0B;
+  --cowrin-darker: #050505;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+}
+
+body {
+  background-color: #050505;
+  color: #ffffff;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  overflow-x: hidden;
+}
+
+/* Custom Brand Utilities */
+.text-cowrin {
+  color: #FF5A1F;
+}
+
+.bg-cowrin {
+  background-color: #FF5A1F;
+}
+
+.border-cowrin {
+  border-color: #FF5A1F;
+}
+
+/* Glow effects */
+.glow-orange {
+  box-shadow: 0 0 35px rgba(255, 90, 31, 0.28);
+}
+
+.glow-orange-lg {
+  box-shadow: 0 0 70px rgba(255, 90, 31, 0.35);
+}
+
+.glow-orange-btn {
+  box-shadow: 0 16px 40px rgba(255, 90, 31, 0.30);
+}
+
+.glow-orange-btn:hover {
+  box-shadow: 0 20px 48px rgba(255, 90, 31, 0.45);
+}
+
+/* Glassmorphism for Dark Sections */
+.glass-card-dark {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.07) 0%, rgba(255, 255, 255, 0.025) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08), 0 24px 60px rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+.glass-card-dark:hover {
+  border-color: rgba(255, 90, 31, 0.45);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12), 0 30px 70px rgba(0, 0, 0, 0.6), 0 0 30px rgba(255, 90, 31, 0.15);
+}
+
+/* Glassmorphism for White Sections */
+.glass-card-white {
+  background: #ffffff;
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.05), 0 20px 40px -15px rgba(255, 90, 31, 0.06);
+}
+
+.glass-card-white:hover {
+  border-color: rgba(255, 90, 31, 0.5);
+  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.08), 0 0 25px rgba(255, 90, 31, 0.12);
+}
+
+/* Background Grids */
+.bg-grid-dark {
+  background-image: 
+    linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  background-size: 64px 64px;
+}
+
+.bg-grid-light {
+  background-image: 
+    linear-gradient(rgba(15, 23, 42, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(15, 23, 42, 0.04) 1px, transparent 1px);
+  background-size: 56px 56px;
+}
+
+/* Ambient glows */
+.radial-glow-top {
+  background: radial-gradient(circle at 50% 0%, rgba(255, 90, 31, 0.22) 0%, transparent 65%);
+}
+
+.radial-glow-left {
+  background: radial-gradient(circle at 10% 30%, rgba(255, 90, 31, 0.15) 0%, transparent 50%);
+}
+
+.radial-glow-right {
+  background: radial-gradient(circle at 90% 40%, rgba(255, 90, 31, 0.12) 0%, transparent 50%);
+}
+
+/* Smooth transitions */
+.transition-smooth {
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Auto-scroll marquee animations */
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes marquee-reverse {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 45s linear infinite;
+}
+
+.animate-marquee-reverse {
+  display: flex;
+  width: max-content;
+  animation: marquee-reverse 45s linear infinite;
+}
+
+.marquee-container:hover .animate-marquee,
+.marquee-container:hover .animate-marquee-reverse {
+  animation-play-state: paused;
+}

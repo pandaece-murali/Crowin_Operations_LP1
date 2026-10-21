@@ -55,7 +55,7 @@ export default function AboutSection({ onLearnMore }: AboutSectionProps) {
             {/* Eyebrow */}
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold tracking-widest uppercase bg-[#FF5A1F]/10 border border-[#FF5A1F]/30 text-[#FF5A1F]">
               <Sparkles className="w-3.5 h-3.5" />
-              <span>2. ABOUT COWRIN</span>
+              <span>ABOUT COWRIN</span>
             </div>
 
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight leading-tight">

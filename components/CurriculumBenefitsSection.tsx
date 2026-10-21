@@ -91,12 +91,12 @@ export default function CurriculumBenefitsSection({
   return (
     <section id="curriculum" className="py-24 sm:py-32 bg-white text-slate-900 border-t border-slate-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
+
         {/* Header */}
         <div className="max-w-3xl mx-auto text-center space-y-4 mb-16 sm:mb-20">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-black tracking-widest uppercase bg-[#FF5A1F]/10 border border-[#FF5A1F]/30 text-[#FF5A1F]">
             <Sparkles className="w-3.5 h-3.5" />
-            <span>4. WHAT YOU&apos;LL LEARN &amp; PROGRAM BENEFITS</span>
+            <span>WHAT YOU&apos;LL LEARN &amp; PROGRAM BENEFITS</span>
           </div>
 
           <h2 className="text-3xl sm:text-5xl font-black text-slate-900 tracking-tight leading-tight">
@@ -166,7 +166,7 @@ export default function CurriculumBenefitsSection({
 
             {/* 2-Column Grid: Benefits on Left, Visual Operations Image on Right */}
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-              
+
               {/* Left Column: Benefits List */}
               <div className="lg:col-span-7 space-y-3.5">
                 {pathwayBenefits.map((item, idx) => (

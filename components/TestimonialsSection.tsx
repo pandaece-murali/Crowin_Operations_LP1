@@ -119,7 +119,7 @@ export default function TestimonialsSection() {
   ];
 
   return (
-    <section id="reviews" className="py-20 sm:py-28 bg-[#0B0B0B] text-white relative overflow-hidden bg-grid-dark border-t border-white/10">
+    <section id="reviews" className="py-14 sm:py-16 bg-[#0B0B0B] text-white relative overflow-hidden border-t border-white/10">
       {/* Inline styles for guaranteed CSS animation across all bundlers */}
       <style
         dangerouslySetInnerHTML={{
@@ -151,7 +151,7 @@ export default function TestimonialsSection() {
       {/* Background ambient glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[350px] bg-[#FF5A1F]/10 rounded-full blur-[140px] pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 mb-10 text-center space-y-3">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 mb-8 text-center space-y-3">
         {/* Eyebrow */}
         <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-black tracking-widest uppercase bg-[#FF5A1F]/10 border border-[#FF5A1F]/30 text-[#FF5A1F]">
           <span>LEARNER SUCCESS STORIES</span>

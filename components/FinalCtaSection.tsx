@@ -24,11 +24,11 @@ export default function FinalCtaSection({ onEnquireNow }: FinalCtaSectionProps) 
   };
 
   return (
-    <section className="relative py-24 sm:py-32 bg-[#050505] text-white overflow-hidden border-t border-white/10">
+    <section className="relative py-14 sm:py-18 bg-[#050505] text-white overflow-hidden border-t border-white/10">
       {/* Intense centered ambient glow in COWRIN brand color */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-[#FF5A1F]/20 rounded-full blur-[140px] pointer-events-none" />
 
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center space-y-8">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center space-y-6 sm:space-y-7">
         
         {/* Eyebrow */}
         <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-black tracking-widest uppercase bg-[#FF5A1F]/15 border border-[#FF5A1F]/30 text-[#FF5A1F]">

@@ -15,7 +15,7 @@ function ThankYouContent() {
   const firstName = name.trim().split(" ")[0] || "Learner";
 
   return (
-    <div className="min-h-screen bg-[#050505] text-white flex flex-col justify-between selection:bg-[#FF5A1F] selection:text-white bg-grid-dark relative overflow-hidden">
+    <div className="min-h-screen bg-[#050505] text-white flex flex-col justify-between selection:bg-[#FF5A1F] selection:text-white relative overflow-hidden">
       {/* Ambient background glows */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[400px] bg-[#FF5A1F]/15 rounded-full blur-[140px] pointer-events-none" />
 

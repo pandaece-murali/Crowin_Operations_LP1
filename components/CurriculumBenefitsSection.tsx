@@ -89,54 +89,54 @@ export default function CurriculumBenefitsSection({
   ];
 
   return (
-    <section id="curriculum" className="py-24 sm:py-32 bg-white text-slate-900 border-t border-slate-200">
+    <section id="curriculum" className="py-14 sm:py-16 bg-[#050505] text-white border-t border-white/10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Header */}
-        <div className="max-w-3xl mx-auto text-center space-y-4 mb-16 sm:mb-20">
+        <div className="max-w-3xl mx-auto text-center space-y-4 mb-10 sm:mb-12">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-black tracking-widest uppercase bg-[#FF5A1F]/10 border border-[#FF5A1F]/30 text-[#FF5A1F]">
             <span>WHAT YOU&apos;LL LEARN &amp; PROGRAM BENEFITS</span>
           </div>
 
-          <h2 className="text-3xl sm:text-5xl font-black text-slate-900 tracking-tight leading-tight">
+          <h2 className="text-3xl sm:text-5xl font-black text-white tracking-tight leading-tight">
             Understand the Processes Behind{" "}
             <span className="text-[#FF5A1F]">Healthcare Revenue</span>
           </h2>
 
-          <p className="text-base sm:text-lg text-slate-600 font-normal leading-relaxed">
+          <p className="text-base sm:text-lg text-slate-400 font-normal leading-relaxed">
             Build your knowledge across three connected areas of healthcare operations.
           </p>
         </div>
 
         {/* 6 Core Curriculum Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-20">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12 sm:mb-14">
           {coreModules.map((mod, idx) => {
             const Icon = mod.icon;
             return (
               <div
                 key={idx}
-                className="p-7 rounded-2xl bg-slate-50 border border-slate-200 hover:border-[#FF5A1F]/50 hover:bg-white hover:shadow-xl transition-all duration-300 group flex flex-col justify-between"
+                className="p-7 rounded-2xl bg-white/[0.03] border border-white/10 hover:border-[#FF5A1F]/50 hover:bg-white/[0.06] hover:shadow-2xl transition-all duration-300 group flex flex-col justify-between"
               >
                 <div>
                   <div className="flex items-center justify-between mb-4">
-                    <div className="w-11 h-11 rounded-xl bg-orange-100/70 text-[#FF5A1F] flex items-center justify-center group-hover:scale-110 group-hover:bg-[#FF5A1F] group-hover:text-white transition-all">
+                    <div className="w-11 h-11 rounded-xl bg-white/5 border border-white/10 text-[#FF5A1F] flex items-center justify-center group-hover:scale-110 group-hover:bg-[#FF5A1F] group-hover:text-white transition-all shadow-xs">
                       <Icon className="w-5 h-5" />
                     </div>
-                    <span className="text-[10px] font-mono font-bold tracking-widest uppercase px-2 py-0.5 rounded-full bg-slate-200/70 text-slate-700">
+                    <span className="text-[10px] font-mono font-bold tracking-widest uppercase px-2.5 py-0.5 rounded-full bg-[#FF5A1F]/15 border border-[#FF5A1F]/30 text-[#FF5A1F]">
                       {mod.tag}
                     </span>
                   </div>
 
-                  <h3 className="text-lg font-bold text-slate-900 mb-2 group-hover:text-[#FF5A1F] transition-colors">
+                  <h3 className="text-lg font-bold text-white mb-2 group-hover:text-[#FF5A1F] transition-colors">
                     {mod.title}
                   </h3>
 
-                  <p className="text-sm text-slate-600 leading-relaxed font-normal">
+                  <p className="text-sm text-slate-400 leading-relaxed font-normal">
                     {mod.desc}
                   </p>
                 </div>
 
-                <div className="pt-4 mt-4 border-t border-slate-200/80 flex items-center gap-1.5 text-xs font-semibold text-[#FF5A1F]">
+                <div className="pt-4 mt-4 border-t border-white/10 flex items-center gap-1.5 text-xs font-semibold text-[#FF5A1F]">
                   <CheckCircle2 className="w-3.5 h-3.5" />
                   <span>Key Healthcare Skill</span>
                 </div>

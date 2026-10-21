@@ -13,8 +13,8 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-[#050505] text-slate-400 text-xs border-t border-white/10 pt-14 sm:pt-16 pb-28 sm:pb-24">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+    <footer className="bg-[#050505] text-slate-400 text-xs border-t border-white/10 pt-12 sm:pt-14 pb-24 sm:pb-20">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
         
         {/* Main Footer Row */}
         <div className="grid grid-cols-1 md:grid-cols-12 gap-10 lg:gap-12 items-start">

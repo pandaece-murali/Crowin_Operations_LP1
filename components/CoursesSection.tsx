@@ -70,7 +70,7 @@ export default function CoursesSection({ onSelectCourse }: CoursesSectionProps) 
   };
 
   return (
-    <section id="courses" className="relative py-24 sm:py-32 bg-[#0B0B0B] text-white overflow-hidden bg-grid-dark">
+    <section id="courses" className="relative py-14 sm:py-16 bg-[#0B0B0B] text-white overflow-hidden border-t border-white/10">
       {/* Ambient background glows */}
       <div className="absolute top-1/2 left-0 -translate-y-1/2 w-96 h-96 bg-[#FF5A1F]/15 rounded-full blur-[140px] pointer-events-none" />
       <div className="absolute bottom-10 right-0 w-96 h-96 bg-[#FF5A1F]/10 rounded-full blur-[140px] pointer-events-none" />
@@ -78,7 +78,7 @@ export default function CoursesSection({ onSelectCourse }: CoursesSectionProps) 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header */}
-        <div className="max-w-3xl mx-auto text-center space-y-4 mb-16 sm:mb-20">
+        <div className="max-w-3xl mx-auto text-center space-y-4 mb-10 sm:mb-12">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-black tracking-widest uppercase bg-[#FF5A1F]/10 border border-[#FF5A1F]/30 text-[#FF5A1F]">
             <span>OUR COURSES</span>
           </div>

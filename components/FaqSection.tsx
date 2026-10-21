@@ -57,14 +57,14 @@ export default function FaqSection() {
   };
 
   return (
-    <section id="faqs" className="py-24 sm:py-32 bg-[#0B0B0B] text-white relative overflow-hidden bg-grid-dark">
+    <section id="faqs" className="py-14 sm:py-16 bg-[#0B0B0B] text-white relative overflow-hidden border-t border-white/10">
       {/* Background glow */}
       <div className="absolute top-1/3 right-1/4 w-96 h-96 bg-[#FF5A1F]/10 rounded-full blur-[140px] pointer-events-none" />
 
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Header */}
-        <div className="text-center space-y-4 mb-12">
+        <div className="text-center space-y-4 mb-8 sm:mb-10">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-black tracking-widest uppercase bg-[#FF5A1F]/10 border border-[#FF5A1F]/30 text-[#FF5A1F]">
             <span>FREQUENTLY ASKED QUESTIONS</span>
           </div>

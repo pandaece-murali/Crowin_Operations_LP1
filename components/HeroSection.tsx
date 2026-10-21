@@ -52,17 +52,17 @@ export default function HeroSection({
   ];
 
   return (
-    <section className="relative min-h-[90vh] bg-[#050505] text-white pt-10 pb-20 sm:pt-16 sm:pb-28 overflow-hidden bg-grid-dark">
+    <section className="relative bg-[#050505] text-white pt-8 pb-12 sm:pt-12 sm:pb-16 overflow-hidden">
       {/* Ambient background glows */}
       <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-[#FF5A1F]/15 rounded-full blur-[140px] pointer-events-none -z-0" />
       <div className="absolute bottom-10 right-10 w-[420px] h-[420px] bg-[#FF5A1F]/10 rounded-full blur-[120px] pointer-events-none -z-0" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-start">
-          
+
           {/* Left Column: Headlines, Highlights, and Value Prop */}
           <div className="lg:col-span-7 space-y-8 pt-2">
-            
+
             {/* Eyebrow Pill */}
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-black tracking-widest uppercase bg-[#FF5A1F]/10 border border-[#FF5A1F]/30 text-[#FF5A1F]">
               <span>HEALTHCARE REVENUE OPERATIONS MASTERY</span>

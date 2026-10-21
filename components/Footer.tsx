@@ -13,22 +13,21 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-[#050505] text-slate-400 text-xs border-t border-white/10 pt-16 pb-28 sm:pb-24">
+    <footer className="bg-[#050505] text-slate-400 text-xs border-t border-white/10 pt-14 sm:pt-16 pb-28 sm:pb-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
         
         {/* Main Footer Row */}
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-10 lg:gap-12 items-start">
           
           {/* Brand Info */}
           <div className="md:col-span-5 space-y-4">
-            <div className="relative h-10 w-40">
+            <div className="flex items-start">
               <Image
-                src="https://cdn.edbound.app/public/05f7c860-a46a-4c3c-a4a1-0b4d951f5071/customfile/23042026/c856c.webp"
+                src="/images/cowrin-logo.webp"
                 alt="COWRIN Logo"
-                width={150}
-                height={38}
-                className="object-contain filter brightness-110"
-                unoptimized
+                width={147}
+                height={40}
+                className="h-8 sm:h-9 w-auto object-contain filter brightness-110"
               />
             </div>
             <p className="text-slate-400 text-sm max-w-sm leading-relaxed">

@@ -208,20 +208,35 @@ export default function CurriculumBenefitsSection({
 
             </div>
 
-            {/* Single Focused CTA */}
-            <div className="pt-2 text-center">
-              <button
-                onClick={handleEnquire}
-                className="px-8 py-4 rounded-xl font-black text-sm tracking-wider uppercase text-white transition-all duration-300 inline-flex items-center gap-2 group cursor-pointer shadow-lg hover:scale-105 active:scale-95"
-                style={{
-                  background: "linear-gradient(135deg, #FF5A1F, #E14B16)",
-                  border: "1px solid #FF5A1F",
-                  boxShadow: "0 16px 40px rgba(255, 90, 31, 0.4)",
-                }}
-              >
-                <span>ENQUIRE ABOUT THE COMPLETE PROGRAM</span>
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </button>
+            {/* Note: Combined Bundle Callout Box (The COWRIN Advantage) */}
+            <div className="pt-4">
+              <div className="p-6 sm:p-8 rounded-2xl bg-white/[0.05] border border-white/15 relative overflow-hidden">
+                <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+                  <div className="space-y-2 text-center md:text-left">
+                    <span className="inline-block px-2.5 py-0.5 rounded-full text-[10px] font-black uppercase tracking-wider bg-[#FF5A1F]/20 text-[#FF5A1F] border border-[#FF5A1F]/30">
+                      NOTE &bull; FLEXIBLE LEARNING PATH
+                    </span>
+                    <h4 className="text-lg sm:text-xl font-bold text-white">
+                      Choose Your Learning Path
+                    </h4>
+                    <p className="text-xs sm:text-sm text-slate-300 max-w-2xl leading-relaxed">
+                      Enrol in any course individually or get all three programs together as a bundle to build a broader understanding of healthcare billing, insurance, and revenue cycle management.
+                    </p>
+                  </div>
+
+                  <button
+                    onClick={handleEnquire}
+                    className="px-6 py-4 rounded-xl font-extrabold text-xs sm:text-sm uppercase tracking-wider text-white whitespace-nowrap shrink-0 transition-all cursor-pointer flex items-center gap-2 group hover:scale-105 active:scale-95"
+                    style={{
+                      background: "linear-gradient(135deg, #FF5A1F, #E14B16)",
+                      boxShadow: "0 12px 30px rgba(255, 90, 31, 0.4)",
+                    }}
+                  >
+                    <span>GET THE 3-COURSE BUNDLE</span>
+                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  </button>
+                </div>
+              </div>
             </div>
 
           </div>

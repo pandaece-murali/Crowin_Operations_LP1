@@ -69,14 +69,6 @@ export default function CoursesSection({ onSelectCourse }: CoursesSectionProps) 
     }
   };
 
-  const handleBundleClick = () => {
-    onSelectCourse("All Three Courses (Bundle)");
-    const element = document.getElementById("enquiry-form");
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
-  };
-
   return (
     <section id="courses" className="relative py-24 sm:py-32 bg-[#0B0B0B] text-white overflow-hidden bg-grid-dark">
       {/* Ambient background glows */}
@@ -187,35 +179,6 @@ export default function CoursesSection({ onSelectCourse }: CoursesSectionProps) 
               </div>
             );
           })}
-        </div>
-
-        {/* Note: Combined Bundle Callout Box */}
-        <div className="mt-14 p-6 sm:p-8 rounded-3xl bg-gradient-to-r from-white/[0.08] via-white/[0.04] to-white/[0.08] border border-white/15 relative overflow-hidden">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-            <div className="space-y-2 text-center md:text-left">
-              <span className="inline-block px-2.5 py-0.5 rounded-full text-[10px] font-black uppercase tracking-wider bg-[#FF5A1F]/20 text-[#FF5A1F] border border-[#FF5A1F]/30">
-                NOTE &bull; FLEXIBLE LEARNING PATH
-              </span>
-              <h4 className="text-lg sm:text-xl font-bold text-white">
-                Choose Your Learning Path
-              </h4>
-              <p className="text-xs sm:text-sm text-slate-300 max-w-2xl leading-relaxed">
-                Enrol in any course individually or get all three programs together as a bundle to build a broader understanding of healthcare billing, insurance, and revenue cycle management.
-              </p>
-            </div>
-
-            <button
-              onClick={handleBundleClick}
-              className="px-6 py-4 rounded-xl font-extrabold text-xs sm:text-sm uppercase tracking-wider text-white whitespace-nowrap shrink-0 transition-all cursor-pointer flex items-center gap-2"
-              style={{
-                background: "linear-gradient(135deg, #FF5A1F, #E14B16)",
-                boxShadow: "0 12px 30px rgba(255, 90, 31, 0.4)",
-              }}
-            >
-              <span>GET THE 3-COURSE BUNDLE</span>
-              <ArrowRight className="w-4 h-4" />
-            </button>
-          </div>
         </div>
 
       </div>

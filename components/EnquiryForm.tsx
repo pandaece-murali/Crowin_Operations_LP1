@@ -18,6 +18,7 @@ export default function EnquiryForm({
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [interestedCourse, setInterestedCourse] = useState(initialCourse);
+  const [message, setMessage] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
 
@@ -72,6 +73,7 @@ export default function EnquiryForm({
           email,
           phone,
           interestedCourse,
+          message,
         }),
       });
 
@@ -226,7 +228,6 @@ export default function EnquiryForm({
                       </div>
                       {course.tagline && (
                         <div className="text-[11px] text-[#FF5A1F] font-medium flex items-center gap-1 mt-0.5">
-                          <Sparkles className="w-3 h-3" />
                           <span>{course.tagline}</span>
                         </div>
                       )}
@@ -248,6 +249,22 @@ export default function EnquiryForm({
               );
             })}
           </div>
+        </div>
+
+        {/* Any Other Queries / Message */}
+        <div className="space-y-1 text-left pt-1">
+          <label htmlFor="cowrin-message" className="block text-xs font-semibold text-slate-300">
+            Any Other Queries / Message <span className="text-slate-500 font-normal">(Optional)</span>
+          </label>
+          <textarea
+            id="cowrin-message"
+            name="message"
+            rows={2}
+            value={message}
+            onChange={(e) => setMessage(e.target.value)}
+            placeholder="Have questions about fees, batch timings, or syllabus? Write here..."
+            className="w-full px-3.5 py-2 rounded-lg bg-black border border-white/15 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-[#FF5A1F] focus:ring-1 focus:ring-[#FF5A1F] transition-colors resize-none"
+          />
         </div>
 
         {/* Submit Enquiry Button */}

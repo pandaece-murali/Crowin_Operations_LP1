@@ -95,7 +95,6 @@ export default function CurriculumBenefitsSection({
         {/* Header */}
         <div className="max-w-3xl mx-auto text-center space-y-4 mb-16 sm:mb-20">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-black tracking-widest uppercase bg-[#FF5A1F]/10 border border-[#FF5A1F]/30 text-[#FF5A1F]">
-            <Sparkles className="w-3.5 h-3.5" />
             <span>WHAT YOU&apos;LL LEARN &amp; PROGRAM BENEFITS</span>
           </div>
 

@@ -3,7 +3,7 @@ import { NextResponse } from "next/server";
 export async function POST(request: Request) {
   try {
     const body = await request.json();
-    const { fullName, email, phone, interestedCourse } = body;
+    const { fullName, email, phone, interestedCourse, message } = body;
 
     if (!fullName || !email || !phone) {
       return NextResponse.json(
@@ -42,6 +42,21 @@ export async function POST(request: Request) {
         value: courseSelected,
       },
     ];
+
+    if (message && message.trim()) {
+      customFields.push(
+        {
+          key: "contact.message",
+          field_value: message.trim(),
+          value: message.trim(),
+        },
+        {
+          key: "message",
+          field_value: message.trim(),
+          value: message.trim(),
+        }
+      );
+    }
 
     if (process.env.GHL_COURSE_FIELD_ID) {
       customFields.push({
@@ -108,7 +123,7 @@ export async function POST(request: Request) {
                     "Content-Type": "application/json",
                   },
                   body: JSON.stringify({
-                    body: `COWRIN LP1 Enquiry Received\n• Program: ${interestedCourse}\n• Reference ID: ${refCode}\n• Submitted At: ${new Date().toLocaleString()}`,
+                    body: `COWRIN LP1 Enquiry Received\n• Program: ${courseSelected}\n• Message / Query: ${message ? message.trim() : "None"}\n• Reference ID: ${refCode}\n• Submitted At: ${new Date().toLocaleString()}`,
                   }),
                 }
               );

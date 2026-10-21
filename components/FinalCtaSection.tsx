@@ -32,7 +32,6 @@ export default function FinalCtaSection({ onEnquireNow }: FinalCtaSectionProps) 
         
         {/* Eyebrow */}
         <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-black tracking-widest uppercase bg-[#FF5A1F]/15 border border-[#FF5A1F]/30 text-[#FF5A1F]">
-          <Sparkles className="w-3.5 h-3.5" />
           <span>TAKE THE FIRST STEP TODAY</span>
         </div>
 

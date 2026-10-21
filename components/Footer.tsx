@@ -124,7 +124,7 @@ export default function Footer() {
         <div className="p-4 rounded-xl bg-white/[0.03] border border-white/10 text-slate-400 text-[11px] leading-relaxed flex items-start gap-3">
           <ShieldAlert className="w-4 h-4 text-[#FF5A1F] shrink-0 mt-0.5" />
           <span>
-            <strong>Disclaimer:</strong> The program is designed to build foundational knowledge relevant to healthcare operations. Career outcomes depend on your skills, qualifications, experience, and employer requirements; employment is not guaranteed. Course certificates are awarded upon successful completion of program requirements.
+            <strong>Disclaimer:</strong> COWRIN’s programs are designed to help learners develop knowledge and practical understanding of healthcare operations. Career opportunities and progression depend on individual skills, qualifications, experience, and industry requirements. Certificates are awarded upon successful completion of the respective program requirements.
           </span>
         </div>
 

@@ -31,7 +31,7 @@ export default function Navbar({ onEnquireClick }: NavbarProps) {
   return (
     <header className="sticky top-0 z-50 w-full bg-[#0B0B0B]/90 backdrop-blur-md border-b border-white/10 transition-all">
       {/* Top micro announcement bar */}
-      <div className="bg-gradient-to-r from-[#0B0B0B] via-[#1a0f0a] to-[#0B0B0B] border-b border-[#FF5A1F]/20 py-1.5 px-4 text-center text-xs">
+      {/* <div className="bg-gradient-to-r from-[#0B0B0B] via-[#1a0f0a] to-[#0B0B0B] border-b border-[#FF5A1F]/20 py-1.5 px-4 text-center text-xs">
         <div className="max-w-7xl mx-auto flex items-center justify-center gap-2">
           <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[11px] font-semibold bg-[#FF5A1F]/15 text-[#FF5A1F] border border-[#FF5A1F]/30">
             <Sparkles className="w-3 h-3" /> ADMISSIONS OPEN
@@ -40,7 +40,7 @@ export default function Navbar({ onEnquireClick }: NavbarProps) {
             Healthcare Revenue Operations Mastery &bull; 3 Programs in 1 Career Pathway
           </span>
         </div>
-      </div>
+      </div> */}
 
       {/* Main Navbar */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
@@ -74,7 +74,7 @@ export default function Navbar({ onEnquireClick }: NavbarProps) {
             onClick={() => scrollTo("courses")}
             className="hover:text-white transition-colors"
           >
-            The 3 Courses
+            Our Courses
           </button>
           <button
             onClick={() => scrollTo("curriculum")}

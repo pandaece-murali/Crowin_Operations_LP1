@@ -65,7 +65,6 @@ export default function HeroSection({
             
             {/* Eyebrow Pill */}
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-black tracking-widest uppercase bg-[#FF5A1F]/10 border border-[#FF5A1F]/30 text-[#FF5A1F]">
-              <Sparkles className="w-3.5 h-3.5 text-[#FF5A1F]" />
               <span>HEALTHCARE REVENUE OPERATIONS MASTERY</span>
             </div>
 
@@ -159,7 +158,7 @@ export default function HeroSection({
           <div className="lg:col-span-5 relative">
             {/* Visual badge top right */}
             <div className="absolute -top-3 right-6 z-20 px-3 py-1 rounded-full text-[11px] font-bold bg-[#FF5A1F] text-white shadow-lg flex items-center gap-1">
-              <Sparkles className="w-3 h-3" /> ADMISSIONS 2026
+              ADMISSIONS OPEN
             </div>
 
             <EnquiryForm

@@ -15,23 +15,22 @@ function ThankYouContent() {
   const firstName = name.trim().split(" ")[0] || "Learner";
 
   return (
-    <div className="min-h-screen bg-[#050505] text-white flex flex-col justify-between selection:bg-[#FF5A1F] selection:text-white relative overflow-hidden">
+    <div className="min-h-screen bg-[#050505] text-[#F2F4F7] flex flex-col justify-between selection:bg-[#FF8A00] selection:text-white relative overflow-hidden">
       {/* Ambient background glows */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[400px] bg-[#FF5A1F]/15 rounded-full blur-[140px] pointer-events-none" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[400px] bg-[#FF8A00]/15 rounded-full blur-[140px] pointer-events-none" />
 
       {/* Header */}
       <header className="border-b border-white/10 bg-[#0B0B0B]/80 backdrop-blur-md sticky top-0 z-40">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 h-20 flex items-center justify-between">
           <Link href="/" className="flex items-center gap-3 group">
-            <div className="relative h-10 w-36 sm:w-44">
+            <div className="relative h-11 w-44 sm:w-48">
               <Image
-                src="https://cdn.edbound.app/public/05f7c860-a46a-4c3c-a4a1-0b4d951f5071/customfile/23042026/c856c.webp"
-                alt="COWRIN Logo"
-                width={150}
-                height={38}
+                src="/images/cowrin-logo.webp"
+                alt="COWRIN - Content with Right Intent"
+                width={180}
+                height={44}
                 className="object-contain filter brightness-110"
                 priority
-                unoptimized
               />
             </div>
           </Link>
@@ -40,7 +39,7 @@ function ThankYouContent() {
             href="/"
             className="text-xs sm:text-sm font-semibold text-slate-300 hover:text-white flex items-center gap-1.5 transition-colors"
           >
-            <ArrowLeft className="w-4 h-4 text-[#FF5A1F]" />
+            <ArrowLeft className="w-4 h-4 text-[#FF8A00]" />
             <span>Back to Home</span>
           </Link>
         </div>
@@ -52,27 +51,27 @@ function ThankYouContent() {
           
           {/* Animated Success Badge */}
           <div className="relative inline-block">
-            <div className="w-20 h-20 rounded-full bg-[#FF5A1F]/20 border-2 border-[#FF5A1F] flex items-center justify-center text-[#FF5A1F] mx-auto shadow-[0_0_50px_rgba(255,90,31,0.4)] animate-pulse-subtle">
+            <div className="w-20 h-20 rounded-full bg-[#FF8A00]/20 border-2 border-[#FF8A00] flex items-center justify-center text-[#FF8A00] mx-auto shadow-[0_0_50px_rgba(255,138,0,0.4)] animate-pulse-subtle">
               <CheckCircle2 className="w-12 h-12" />
             </div>
           </div>
 
           {/* Eyebrow & Headline */}
           <div className="space-y-3">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs font-black tracking-widest uppercase bg-[#FF5A1F]/15 border border-[#FF5A1F]/30 text-[#FF5A1F]">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs font-black tracking-widest uppercase bg-[#FF8A00]/15 border border-[#FF8A00]/30 text-[#FF8A00]">
               <span>ENQUIRY RECEIVED &bull; ADMISSIONS OPEN</span>
             </div>
 
-            <h1 className="text-3xl sm:text-5xl font-black text-white tracking-tight leading-tight max-w-2xl mx-auto">
-              Thank You, <span className="text-[#FF5A1F]">{firstName}</span>! Your Enquiry Has Been Received.
+            <h1 className="text-3xl sm:text-5xl font-black text-white tracking-tight leading-tight max-w-2xl mx-auto font-heading">
+              Thank You, <span className="text-[#FF8A00]">{firstName}</span>! Your Enquiry Has Been Received.
             </h1>
           </div>
 
           {/* Enquiry Summary Card */}
-          <div className="max-w-md mx-auto rounded-2xl bg-white/[0.04] border border-white/15 p-6 text-left shadow-2xl space-y-3.5">
+          <div className="max-w-md mx-auto rounded-2xl bg-[#0D1B2A]/60 border border-white/15 p-6 text-left shadow-2xl space-y-3.5">
             <div className="flex justify-between items-center text-xs sm:text-sm text-slate-400 pb-2.5 border-b border-white/10">
               <span className="font-medium">Reference Number</span>
-              <span className="text-[#FF5A1F] font-mono font-bold tracking-wider">{ref}</span>
+              <span className="text-[#FF8A00] font-mono font-bold tracking-wider">{ref}</span>
             </div>
             <div className="flex justify-between items-center text-xs sm:text-sm text-slate-400 pb-2.5 border-b border-white/10">
               <span className="font-medium">Selected Program</span>
@@ -100,10 +99,10 @@ function ThankYouContent() {
           <div className="pt-4">
             <Link
               href="/#courses"
-              className="inline-flex items-center gap-2 px-8 py-4 rounded-xl font-bold text-sm tracking-wide text-white transition-all duration-300 cursor-pointer hover:scale-[1.02] active:scale-[0.98]"
+              className="inline-flex items-center gap-2 px-8 py-4 rounded-xl font-bold text-sm tracking-wide text-white transition-all duration-300 cursor-pointer hover:scale-[1.02] active:scale-[0.98] shadow-lg"
               style={{
-                background: "linear-gradient(135deg, #FF5A1F, #E14B16)",
-                boxShadow: "0 12px 30px rgba(255, 90, 31, 0.4)",
+                background: "linear-gradient(135deg, #FF8A00, #E07A00)",
+                boxShadow: "0 12px 30px rgba(255, 138, 0, 0.4)",
               }}
             >
               <span>Explore our programs while you wait</span>
@@ -144,7 +143,7 @@ export default function ThankYouPage() {
       fallback={
         <div className="min-h-screen bg-[#050505] text-white flex items-center justify-center">
           <div className="text-center space-y-3">
-            <div className="w-8 h-8 border-2 border-[#FF5A1F] border-t-transparent rounded-full animate-spin mx-auto" />
+            <div className="w-8 h-8 border-2 border-[#FF8A00] border-t-transparent rounded-full animate-spin mx-auto" />
             <p className="text-sm text-slate-400">Loading confirmation details...</p>
           </div>
         </div>

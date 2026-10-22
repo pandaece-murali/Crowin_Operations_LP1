@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
-import { Shield, ArrowRight, Sparkles } from "lucide-react";
+import { Shield, ArrowRight, Gift } from "lucide-react";
 
 interface EnquiryFormProps {
   initialCourse?: string;
@@ -106,11 +106,11 @@ export default function EnquiryForm({
       id={id}
       className="relative rounded-2xl bg-[#0B0B0B] border border-white/10 p-6 sm:p-8 shadow-2xl transition-all"
       style={{
-        boxShadow: "0 20px 50px rgba(0, 0, 0, 0.8), 0 0 40px rgba(255, 90, 31, 0.12)",
+        boxShadow: "0 20px 50px rgba(0, 0, 0, 0.8), 0 0 40px rgba(255, 138, 0, 0.12)",
       }}
     >
-      {/* Decorative top orange indicator */}
-      <div className="absolute -top-px left-8 right-8 h-1 bg-gradient-to-r from-transparent via-[#FF5A1F] to-transparent" />
+      {/* Decorative top vibrant orange indicator */}
+      <div className="absolute -top-px left-8 right-8 h-1 bg-gradient-to-r from-transparent via-[#FF8A00] to-transparent" />
 
       <form
         name="enquiry_form"
@@ -129,6 +129,10 @@ export default function EnquiryForm({
           <p className="text-xs sm:text-sm text-slate-400">
             Share your details and our team can help you explore the right learning program.
           </p>
+          <div className="pt-1.5 flex items-center gap-1.5 text-xs font-semibold text-[#FF8A00] leading-snug">
+            <Gift className="w-3.5 h-3.5 shrink-0" />
+            <span>Get a complimentary Human Anatomy &amp; Medical Terminology course with your purchase.</span>
+          </div>
         </div>
 
         {/* Error Banner */}
@@ -141,7 +145,7 @@ export default function EnquiryForm({
         {/* Full Name */}
         <div className="space-y-1 text-left">
           <label htmlFor="cowrin-name" className="block text-xs font-semibold text-slate-300">
-            Full Name <span className="text-[#FF5A1F]">*</span>
+            Full Name <span className="text-[#FF8A00]">*</span>
           </label>
           <input
             id="cowrin-name"
@@ -152,14 +156,14 @@ export default function EnquiryForm({
             value={fullName}
             onChange={(e) => setFullName(e.target.value)}
             placeholder="Enter your full name"
-            className="w-full px-3.5 py-2.5 rounded-lg bg-black border border-white/15 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-[#FF5A1F] focus:ring-1 focus:ring-[#FF5A1F] transition-colors"
+            className="w-full px-3.5 py-2.5 rounded-lg bg-[#050505] border border-white/15 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-[#FF8A00] focus:ring-1 focus:ring-[#FF8A00] transition-colors"
           />
         </div>
 
         {/* Email Address */}
         <div className="space-y-1 text-left">
           <label htmlFor="cowrin-email" className="block text-xs font-semibold text-slate-300">
-            Email Address <span className="text-[#FF5A1F]">*</span>
+            Email Address <span className="text-[#FF8A00]">*</span>
           </label>
           <input
             id="cowrin-email"
@@ -170,14 +174,14 @@ export default function EnquiryForm({
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             placeholder="Enter your email address"
-            className="w-full px-3.5 py-2.5 rounded-lg bg-black border border-white/15 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-[#FF5A1F] focus:ring-1 focus:ring-[#FF5A1F] transition-colors"
+            className="w-full px-3.5 py-2.5 rounded-lg bg-[#050505] border border-white/15 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-[#FF8A00] focus:ring-1 focus:ring-[#FF8A00] transition-colors"
           />
         </div>
 
         {/* Phone Number */}
         <div className="space-y-1 text-left">
           <label htmlFor="cowrin-phone" className="block text-xs font-semibold text-slate-300">
-            Phone Number <span className="text-[#FF5A1F]">*</span>
+            Phone Number <span className="text-[#FF8A00]">*</span>
           </label>
           <input
             id="cowrin-phone"
@@ -188,14 +192,14 @@ export default function EnquiryForm({
             value={phone}
             onChange={(e) => setPhone(e.target.value)}
             placeholder="Enter your phone number"
-            className="w-full px-3.5 py-2.5 rounded-lg bg-black border border-white/15 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-[#FF5A1F] focus:ring-1 focus:ring-[#FF5A1F] transition-colors"
+            className="w-full px-3.5 py-2.5 rounded-lg bg-[#050505] border border-white/15 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-[#FF8A00] focus:ring-1 focus:ring-[#FF8A00] transition-colors"
           />
         </div>
 
         {/* Interested Course */}
         <div className="space-y-2 text-left pt-1">
           <label className="block text-xs font-semibold text-slate-300">
-            Interested Course <span className="text-[#FF5A1F]">*</span>
+            Interested Course <span className="text-[#FF8A00]">*</span>
           </label>
           <div className="space-y-2">
             {courseOptions.map((course) => {
@@ -208,16 +212,16 @@ export default function EnquiryForm({
                   onClick={() => setInterestedCourse(course.name)}
                   className={`flex items-center justify-between p-2.5 rounded-xl border cursor-pointer transition-all ${
                     isSelected
-                      ? "bg-[#FF5A1F]/15 border-[#FF5A1F] text-white shadow-md shadow-[#FF5A1F]/10"
+                      ? "bg-[#0D1B2A] border-[#FF8A00] text-white shadow-md shadow-[#FF8A00]/15"
                       : isHighlight
-                      ? "bg-white/[0.04] border-[#FF5A1F]/30 text-white hover:border-[#FF5A1F]/60"
-                      : "bg-black/60 border-white/10 text-slate-300 hover:border-white/20"
+                      ? "bg-[#0D1B2A]/40 border-[#1D4ED8]/40 text-white hover:border-[#FF8A00]/60"
+                      : "bg-[#050505] border-white/10 text-slate-300 hover:border-white/20"
                   }`}
                 >
                   <div className="flex items-center gap-3 min-w-0">
                     <div
                       className={`w-4 h-4 rounded-full border flex items-center justify-center shrink-0 transition-colors ${
-                        isSelected ? "border-[#FF5A1F] bg-[#FF5A1F]" : "border-slate-500 bg-transparent"
+                        isSelected ? "border-[#FF8A00] bg-[#FF8A00]" : "border-slate-500 bg-transparent"
                       }`}
                     >
                       {isSelected && <div className="w-1.5 h-1.5 rounded-full bg-white" />}
@@ -227,7 +231,7 @@ export default function EnquiryForm({
                         {course.name}
                       </div>
                       {course.tagline && (
-                        <div className="text-[11px] text-[#FF5A1F] font-medium flex items-center gap-1 mt-0.5">
+                        <div className="text-[11px] text-[#FF8A00] font-medium flex items-center gap-1 mt-0.5">
                           <span>{course.tagline}</span>
                         </div>
                       )}
@@ -238,7 +242,7 @@ export default function EnquiryForm({
                     <span
                       className={`text-[9px] font-extrabold uppercase tracking-wider px-2 py-0.5 rounded-full ml-2 shrink-0 ${
                         isHighlight
-                          ? "bg-[#FF5A1F] text-white"
+                          ? "bg-[#FF8A00] text-white"
                           : "bg-white/10 text-slate-400"
                       }`}
                     >
@@ -263,7 +267,7 @@ export default function EnquiryForm({
             value={message}
             onChange={(e) => setMessage(e.target.value)}
             placeholder="Have questions about fees, batch timings, or syllabus? Write here..."
-            className="w-full px-3.5 py-2 rounded-lg bg-black border border-white/15 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-[#FF5A1F] focus:ring-1 focus:ring-[#FF5A1F] transition-colors resize-none"
+            className="w-full px-3.5 py-2 rounded-lg bg-[#050505] border border-white/15 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-[#FF8A00] focus:ring-1 focus:ring-[#FF8A00] transition-colors resize-none"
           />
         </div>
 
@@ -272,11 +276,11 @@ export default function EnquiryForm({
           <button
             type="submit"
             disabled={isSubmitting}
-            className="w-full py-3.5 px-6 rounded-xl font-bold text-sm tracking-wide text-white transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer disabled:opacity-70"
+            className="w-full py-3.5 px-6 rounded-xl font-bold text-sm tracking-wide text-white transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer disabled:opacity-70 shadow-lg hover:scale-[1.02] active:scale-[0.98]"
             style={{
-              background: "linear-gradient(135deg, #FF5A1F, #E14B16)",
-              border: "1px solid #FF5A1F",
-              boxShadow: "0 12px 30px rgba(255, 90, 31, 0.35)",
+              background: "linear-gradient(135deg, #FF8A00, #E07A00)",
+              border: "1px solid #FF8A00",
+              boxShadow: "0 12px 30px rgba(255, 138, 0, 0.35)",
             }}
           >
             {isSubmitting ? (

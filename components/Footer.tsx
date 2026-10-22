@@ -24,8 +24,8 @@ export default function Footer() {
             <div className="flex items-start">
               <Image
                 src="/images/cowrin-logo.webp"
-                alt="COWRIN Logo"
-                width={147}
+                alt="COWRIN - Content with Right Intent"
+                width={160}
                 height={40}
                 className="h-8 sm:h-9 w-auto object-contain filter brightness-110"
               />
@@ -38,9 +38,9 @@ export default function Footer() {
                 href="https://www.cowrin.com/page/privacy-policy"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 text-slate-300 hover:text-[#FF5A1F] text-xs transition-colors underline underline-offset-4"
+                className="inline-flex items-center gap-1.5 text-slate-300 hover:text-[#FF8A00] text-xs transition-colors underline underline-offset-4"
               >
-                <ShieldCheck className="w-3.5 h-3.5 text-[#FF5A1F]" />
+                <ShieldCheck className="w-3.5 h-3.5 text-[#FF8A00]" />
                 <span>Privacy Policy</span>
                 <ExternalLink className="w-3 h-3 text-slate-500" />
               </a>
@@ -49,7 +49,7 @@ export default function Footer() {
 
           {/* Programs Navigation */}
           <div className="md:col-span-4 space-y-3">
-            <h4 className="text-white text-xs font-bold uppercase tracking-wider">
+            <h4 className="text-white text-xs font-bold uppercase tracking-wider font-heading">
               Specialized Programs
             </h4>
             <ul className="space-y-2 text-slate-400 text-xs">
@@ -80,7 +80,7 @@ export default function Footer() {
               <li>
                 <button
                   onClick={() => scrollTo("courses")}
-                  className="text-[#FF5A1F] hover:underline transition-colors text-left font-semibold cursor-pointer"
+                  className="text-[#FF8A00] hover:underline transition-colors text-left font-semibold cursor-pointer"
                 >
                   All Three Courses (Complete Bundle)
                 </button>
@@ -90,7 +90,7 @@ export default function Footer() {
 
           {/* Quick On-Page Links */}
           <div className="md:col-span-3 space-y-3">
-            <h4 className="text-white text-xs font-bold uppercase tracking-wider">
+            <h4 className="text-white text-xs font-bold uppercase tracking-wider font-heading">
               Quick Navigation
             </h4>
             <ul className="space-y-2 text-slate-400 text-xs">
@@ -121,7 +121,7 @@ export default function Footer() {
 
         {/* Legal Disclaimer Box */}
         <div className="p-4 rounded-xl bg-white/[0.03] border border-white/10 text-slate-400 text-[11px] leading-relaxed flex items-start gap-3">
-          <ShieldAlert className="w-4 h-4 text-[#FF5A1F] shrink-0 mt-0.5" />
+          <ShieldAlert className="w-4 h-4 text-[#FF8A00] shrink-0 mt-0.5" />
           <span>
             <strong>Disclaimer:</strong> COWRIN’s programs are designed to help learners develop knowledge and practical understanding of healthcare operations. Career opportunities and progression depend on individual skills, qualifications, experience, and industry requirements. Certificates are awarded upon successful completion of the respective program requirements.
           </span>

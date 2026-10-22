@@ -1,7 +1,7 @@
 "use client";
 
-import React, { useState } from "react";
-import { ArrowRight, CheckCircle2, Layers, ShieldCheck, TrendingUp, Sparkles, Zap } from "lucide-react";
+import React from "react";
+import { ArrowRight, CheckCircle2, Layers, ShieldCheck, TrendingUp, Zap, Gift } from "lucide-react";
 
 interface CoursesSectionProps {
   onSelectCourse: (courseName: string) => void;
@@ -70,22 +70,22 @@ export default function CoursesSection({ onSelectCourse }: CoursesSectionProps) 
   };
 
   return (
-    <section id="courses" className="relative py-14 sm:py-16 bg-[#0B0B0B] text-white overflow-hidden border-t border-white/10">
+    <section id="courses" className="relative py-14 sm:py-16 bg-[#050505] text-[#F2F4F7] overflow-hidden border-t border-white/10">
       {/* Ambient background glows */}
-      <div className="absolute top-1/2 left-0 -translate-y-1/2 w-96 h-96 bg-[#FF5A1F]/15 rounded-full blur-[140px] pointer-events-none" />
-      <div className="absolute bottom-10 right-0 w-96 h-96 bg-[#FF5A1F]/10 rounded-full blur-[140px] pointer-events-none" />
+      <div className="absolute top-1/2 left-0 -translate-y-1/2 w-96 h-96 bg-[#FF8A00]/12 rounded-full blur-[140px] pointer-events-none" />
+      <div className="absolute bottom-10 right-0 w-96 h-96 bg-[#1D4ED8]/12 rounded-full blur-[140px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header */}
         <div className="max-w-3xl mx-auto text-center space-y-4 mb-10 sm:mb-12">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-black tracking-widest uppercase bg-[#FF5A1F]/10 border border-[#FF5A1F]/30 text-[#FF5A1F]">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-black tracking-widest uppercase bg-[#FF8A00]/10 border border-[#FF8A00]/30 text-[#FF8A00]">
             <span>OUR COURSES</span>
           </div>
 
           <h2 className="text-3xl sm:text-5xl font-black text-white tracking-tight leading-[1.1]">
             Explore the Three Essential{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FF5A1F] to-[#ff8453]">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FF8A00] to-[#FFA834]">
               Healthcare Skills.
             </span>
           </h2>
@@ -98,7 +98,6 @@ export default function CoursesSection({ onSelectCourse }: CoursesSectionProps) 
         {/* The 3 Course Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
           {courses.map((course) => {
-            const Icon = course.icon;
             const isFeatured = course.featured;
 
             return (
@@ -106,13 +105,13 @@ export default function CoursesSection({ onSelectCourse }: CoursesSectionProps) 
                 key={course.id}
                 className={`relative rounded-3xl p-7 sm:p-8 flex flex-col justify-between transition-all duration-300 group ${
                   isFeatured
-                    ? "bg-gradient-to-b from-white/[0.08] to-white/[0.03] border-2 border-[#FF5A1F] shadow-[0_20px_60px_rgba(255,90,31,0.22)]"
-                    : "bg-white/[0.04] border border-white/10 hover:border-[#FF5A1F]/50 shadow-xl"
+                    ? "bg-gradient-to-b from-[#0D1B2A]/90 to-[#0D1B2A]/50 border-2 border-[#FF8A00] shadow-[0_20px_60px_rgba(255,138,0,0.25)]"
+                    : "bg-[#0D1B2A]/40 border border-white/10 hover:border-[#FF8A00]/50 shadow-xl"
                 }`}
               >
                 {/* Top Badge for Featured */}
                 {isFeatured && (
-                  <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full text-[10px] font-extrabold uppercase tracking-widest bg-[#FF5A1F] text-white shadow-md flex items-center gap-1 whitespace-nowrap">
+                  <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full text-[10px] font-extrabold uppercase tracking-widest bg-[#FF8A00] text-white shadow-md flex items-center gap-1 whitespace-nowrap">
                     <Zap className="w-3 h-3" /> HIGH DEMAND SKILL
                   </div>
                 )}
@@ -120,7 +119,7 @@ export default function CoursesSection({ onSelectCourse }: CoursesSectionProps) 
                 <div>
                   {/* Top Header */}
                   <div className="flex items-center justify-between mb-6">
-                    <span className="text-3xl font-black tracking-tighter text-[#FF5A1F]/80 font-mono">
+                    <span className="text-3xl font-black tracking-tighter text-[#FF8A00]/80 font-mono">
                       {course.id}.
                     </span>
                     <span className="text-[10px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-full bg-white/5 border border-white/10 text-slate-300">
@@ -133,7 +132,7 @@ export default function CoursesSection({ onSelectCourse }: CoursesSectionProps) 
                     <h3 className="text-xl sm:text-2xl font-black text-white leading-tight">
                       {course.title}
                     </h3>
-                    <p className="text-xs sm:text-sm font-semibold text-[#FF5A1F]">
+                    <p className="text-xs sm:text-sm font-semibold text-[#FF8A00]">
                       {course.subtitle}
                     </p>
                   </div>
@@ -151,7 +150,7 @@ export default function CoursesSection({ onSelectCourse }: CoursesSectionProps) 
                     <ul className="space-y-2 text-xs sm:text-sm text-slate-300">
                       {course.topics.map((topic, tidx) => (
                         <li key={tidx} className="flex items-start gap-2.5">
-                          <CheckCircle2 className="w-4 h-4 text-[#FF5A1F] shrink-0 mt-0.5" />
+                          <CheckCircle2 className="w-4 h-4 text-[#FF8A00] shrink-0 mt-0.5" />
                           <span>{topic}</span>
                         </li>
                       ))}
@@ -161,15 +160,21 @@ export default function CoursesSection({ onSelectCourse }: CoursesSectionProps) 
 
                 {/* Primary Card CTA Button */}
                 <div className="pt-2">
+                  {/* Free MT&A Course Label */}
+                  <div className="mb-3 py-1.5 px-3 rounded-lg bg-[#FF8A00]/10 border border-[#FF8A00]/25 flex items-center justify-center gap-1.5 text-[11px] font-bold text-[#FF8A00] tracking-wide">
+                    <Gift className="w-3.5 h-3.5 shrink-0" />
+                    <span>Includes Free MT&amp;A Course</span>
+                  </div>
+
                   <button
                     onClick={() => handleCtaClick(course.code)}
                     className="w-full py-3.5 px-4 rounded-xl text-xs sm:text-sm font-black tracking-wide text-white uppercase transition-all duration-300 flex items-center justify-center gap-2 group-hover:scale-[1.02] cursor-pointer"
                     style={{
                       background: isFeatured
-                        ? "linear-gradient(135deg, #FF5A1F, #E14B16)"
+                        ? "linear-gradient(135deg, #FF8A00, #E07A00)"
                         : "rgba(255, 255, 255, 0.08)",
-                      border: isFeatured ? "1px solid #FF5A1F" : "1px solid rgba(255, 255, 255, 0.15)",
-                      boxShadow: isFeatured ? "0 10px 25px rgba(255, 90, 31, 0.35)" : "none",
+                      border: isFeatured ? "1px solid #FF8A00" : "1px solid rgba(255, 255, 255, 0.15)",
+                      boxShadow: isFeatured ? "0 10px 25px rgba(255, 138, 0, 0.35)" : "none",
                     }}
                   >
                     <span>{course.ctaText}</span>

@@ -2,7 +2,7 @@
 
 import React from "react";
 import Image from "next/image";
-import { ArrowRight, CheckCircle2, FileSpreadsheet, ShieldCheck, RefreshCw, AlertTriangle, DollarSign, BarChart3, Check, Sparkles, Building2 } from "lucide-react";
+import { ArrowRight, CheckCircle2, FileSpreadsheet, ShieldCheck, RefreshCw, AlertTriangle, DollarSign, BarChart3, Check, Gift } from "lucide-react";
 
 interface CurriculumBenefitsSectionProps {
   onEnquireBundle?: () => void;
@@ -67,6 +67,11 @@ export default function CurriculumBenefitsSection({
 
   const pathwayBenefits = [
     {
+      bold: "Complimentary MT&A Course Included",
+      text: "Enrol in even a single course and receive our Human Anatomy & Medical Terminology course 100% free.",
+      highlight: true,
+    },
+    {
       bold: "Three programs in one pathway",
       text: "Study hospital billing, health insurance, and revenue cycle management.",
     },
@@ -89,18 +94,20 @@ export default function CurriculumBenefitsSection({
   ];
 
   return (
-    <section id="curriculum" className="py-14 sm:py-16 bg-[#050505] text-white border-t border-white/10">
+    <section id="curriculum" className="py-14 sm:py-16 bg-[#050505] text-[#F2F4F7] border-t border-white/10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Header */}
         <div className="max-w-3xl mx-auto text-center space-y-4 mb-10 sm:mb-12">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-black tracking-widest uppercase bg-[#FF5A1F]/10 border border-[#FF5A1F]/30 text-[#FF5A1F]">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-black tracking-widest uppercase bg-[#FF8A00]/10 border border-[#FF8A00]/30 text-[#FF8A00]">
             <span>WHAT YOU&apos;LL LEARN &amp; PROGRAM BENEFITS</span>
           </div>
 
           <h2 className="text-3xl sm:text-5xl font-black text-white tracking-tight leading-tight">
             Understand the Processes Behind{" "}
-            <span className="text-[#FF5A1F]">Healthcare Revenue</span>
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FF8A00] to-[#FFA834]">
+              Healthcare Revenue
+            </span>
           </h2>
 
           <p className="text-base sm:text-lg text-slate-400 font-normal leading-relaxed">
@@ -115,19 +122,19 @@ export default function CurriculumBenefitsSection({
             return (
               <div
                 key={idx}
-                className="p-7 rounded-2xl bg-white/[0.03] border border-white/10 hover:border-[#FF5A1F]/50 hover:bg-white/[0.06] hover:shadow-2xl transition-all duration-300 group flex flex-col justify-between"
+                className="p-7 rounded-2xl bg-[#0D1B2A]/40 border border-white/10 hover:border-[#FF8A00]/50 hover:bg-[#0D1B2A]/70 hover:shadow-2xl transition-all duration-300 group flex flex-col justify-between"
               >
                 <div>
                   <div className="flex items-center justify-between mb-4">
-                    <div className="w-11 h-11 rounded-xl bg-white/5 border border-white/10 text-[#FF5A1F] flex items-center justify-center group-hover:scale-110 group-hover:bg-[#FF5A1F] group-hover:text-white transition-all shadow-xs">
+                    <div className="w-11 h-11 rounded-xl bg-white/5 border border-white/10 text-[#FF8A00] flex items-center justify-center group-hover:scale-110 group-hover:bg-[#FF8A00] group-hover:text-white transition-all shadow-xs">
                       <Icon className="w-5 h-5" />
                     </div>
-                    <span className="text-[10px] font-mono font-bold tracking-widest uppercase px-2.5 py-0.5 rounded-full bg-[#FF5A1F]/15 border border-[#FF5A1F]/30 text-[#FF5A1F]">
+                    <span className="text-[10px] font-mono font-bold tracking-widest uppercase px-2.5 py-0.5 rounded-full bg-[#FF8A00]/15 border border-[#FF8A00]/30 text-[#FF8A00]">
                       {mod.tag}
                     </span>
                   </div>
 
-                  <h3 className="text-lg font-bold text-white mb-2 group-hover:text-[#FF5A1F] transition-colors">
+                  <h3 className="text-lg font-bold text-white mb-2 group-hover:text-[#FF8A00] transition-colors">
                     {mod.title}
                   </h3>
 
@@ -136,7 +143,7 @@ export default function CurriculumBenefitsSection({
                   </p>
                 </div>
 
-                <div className="pt-4 mt-4 border-t border-white/10 flex items-center gap-1.5 text-xs font-semibold text-[#FF5A1F]">
+                <div className="pt-4 mt-4 border-t border-white/10 flex items-center gap-1.5 text-xs font-semibold text-[#FF8A00]">
                   <CheckCircle2 className="w-3.5 h-3.5" />
                   <span>Key Healthcare Skill</span>
                 </div>
@@ -146,13 +153,13 @@ export default function CurriculumBenefitsSection({
         </div>
 
         {/* Sub-section: Why Choose the Combined Learning Pathway? */}
-        <div className="rounded-3xl bg-[#0B0B0B] text-white p-8 sm:p-12 lg:p-14 border border-white/10 shadow-2xl relative overflow-hidden">
+        <div className="rounded-3xl bg-[#0D1B2A]/60 text-white p-8 sm:p-12 lg:p-14 border border-[#1D4ED8]/25 shadow-2xl relative overflow-hidden">
           {/* Subtle glowing orb */}
-          <div className="absolute top-0 right-0 w-80 h-80 bg-[#FF5A1F]/20 rounded-full blur-[120px] pointer-events-none" />
+          <div className="absolute top-0 right-0 w-80 h-80 bg-[#FF8A00]/15 rounded-full blur-[120px] pointer-events-none" />
 
           <div className="max-w-6xl mx-auto space-y-10 relative z-10">
             <div className="text-center space-y-3">
-              <span className="inline-block px-3 py-1 rounded-full text-xs font-black uppercase tracking-wider bg-[#FF5A1F]/20 text-[#FF5A1F] border border-[#FF5A1F]/30">
+              <span className="inline-block px-3 py-1 rounded-full text-xs font-black uppercase tracking-wider bg-[#FF8A00]/20 text-[#FF8A00] border border-[#FF8A00]/30">
                 THE COWRIN ADVANTAGE
               </span>
               <h3 className="text-2xl sm:text-4xl font-black text-white tracking-tight">
@@ -171,14 +178,25 @@ export default function CurriculumBenefitsSection({
                 {pathwayBenefits.map((item, idx) => (
                   <div
                     key={idx}
-                    className="p-4 rounded-xl bg-white/[0.04] border border-white/10 hover:border-[#FF5A1F]/40 transition-colors flex items-start gap-3.5"
+                    className={`p-4 rounded-xl border transition-all flex items-start gap-3.5 ${
+                      item.highlight
+                        ? "bg-gradient-to-r from-[#FF8A00]/15 via-[#0D1B2A]/80 to-[#1D4ED8]/10 border-[#FF8A00]/50 shadow-md shadow-[#FF8A00]/10"
+                        : "bg-[#050505]/60 border-white/10 hover:border-[#FF8A00]/40"
+                    }`}
                   >
-                    <div className="w-6 h-6 rounded-lg bg-[#FF5A1F]/20 text-[#FF5A1F] flex items-center justify-center shrink-0 mt-0.5">
-                      <Check className="w-3.5 h-3.5 stroke-[3]" />
+                    <div className={`w-6 h-6 rounded-lg flex items-center justify-center shrink-0 mt-0.5 ${
+                      item.highlight ? "bg-[#FF8A00] text-white" : "bg-[#FF8A00]/20 text-[#FF8A00]"
+                    }`}>
+                      {item.highlight ? <Gift className="w-3.5 h-3.5" /> : <Check className="w-3.5 h-3.5 stroke-[3]" />}
                     </div>
                     <div className="text-xs sm:text-sm text-slate-300 leading-relaxed">
                       <strong className="text-white font-bold">{item.bold}:</strong>{" "}
                       {item.text}
+                      {item.highlight && (
+                        <span className="inline-block ml-2 px-2 py-0.5 rounded-full text-[10px] font-extrabold uppercase tracking-wider bg-[#FF8A00] text-white">
+                          FREE BONUS
+                        </span>
+                      )}
                     </div>
                   </div>
                 ))}
@@ -196,7 +214,7 @@ export default function CurriculumBenefitsSection({
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent" />
                   <div className="absolute bottom-3 left-3 right-3 p-3 rounded-xl bg-black/80 backdrop-blur-md border border-white/10 text-white">
-                    <span className="text-[10px] font-bold text-[#FF5A1F] uppercase tracking-wider block">
+                    <span className="text-[10px] font-bold text-[#FF8A00] uppercase tracking-wider block">
                       Practical Process Knowledge
                     </span>
                     <span className="text-xs font-medium text-slate-200">
@@ -210,10 +228,10 @@ export default function CurriculumBenefitsSection({
 
             {/* Note: Combined Bundle Callout Box (The COWRIN Advantage) */}
             <div className="pt-4">
-              <div className="p-6 sm:p-8 rounded-2xl bg-white/[0.05] border border-white/15 relative overflow-hidden">
+              <div className="p-6 sm:p-8 rounded-2xl bg-[#050505]/70 border border-white/15 relative overflow-hidden">
                 <div className="flex flex-col md:flex-row items-center justify-between gap-6">
                   <div className="space-y-2 text-center md:text-left">
-                    <span className="inline-block px-2.5 py-0.5 rounded-full text-[10px] font-black uppercase tracking-wider bg-[#FF5A1F]/20 text-[#FF5A1F] border border-[#FF5A1F]/30">
+                    <span className="inline-block px-2.5 py-0.5 rounded-full text-[10px] font-black uppercase tracking-wider bg-[#FF8A00]/20 text-[#FF8A00] border border-[#FF8A00]/30">
                       NOTE &bull; FLEXIBLE LEARNING PATH
                     </span>
                     <h4 className="text-lg sm:text-xl font-bold text-white">
@@ -226,10 +244,10 @@ export default function CurriculumBenefitsSection({
 
                   <button
                     onClick={handleEnquire}
-                    className="px-6 py-4 rounded-xl font-extrabold text-xs sm:text-sm uppercase tracking-wider text-white whitespace-nowrap shrink-0 transition-all cursor-pointer flex items-center gap-2 group hover:scale-105 active:scale-95"
+                    className="px-6 py-4 rounded-xl font-extrabold text-xs sm:text-sm uppercase tracking-wider text-white whitespace-nowrap shrink-0 transition-all cursor-pointer flex items-center gap-2 group hover:scale-105 active:scale-95 shadow-lg"
                     style={{
-                      background: "linear-gradient(135deg, #FF5A1F, #E14B16)",
-                      boxShadow: "0 12px 30px rgba(255, 90, 31, 0.4)",
+                      background: "linear-gradient(135deg, #FF8A00, #E07A00)",
+                      boxShadow: "0 12px 30px rgba(255, 138, 0, 0.4)",
                     }}
                   >
                     <span>GET THE 3-COURSE BUNDLE</span>

@@ -31,12 +31,12 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#050505] selection:bg-[#FF5A1F] selection:text-white">
+    <div className="min-h-screen flex flex-col bg-[#050505] selection:bg-[#FF8A00] selection:text-white">
       {/* Official Header & Navigation (No external links, Single CTA) */}
       <Navbar onEnquireClick={handleGeneralEnquire} />
 
       <main className="flex-1">
-        {/* 1. Hero Section (BLACK BACKGROUND with Brand #FF5A1F Glow, 1 Primary CTA, Embedded Form) */}
+        {/* 1. Hero Section (BLACK BACKGROUND with Brand #FF8A00 Glow, 1 Primary CTA, Embedded Form) */}
         <HeroSection
           onExploreClick={() => {
             const el = document.getElementById("courses");

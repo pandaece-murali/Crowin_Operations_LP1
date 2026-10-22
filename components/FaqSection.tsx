@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { ChevronDown, HelpCircle, Search, Sparkles } from "lucide-react";
+import { ChevronDown, Search } from "lucide-react";
 
 export default function FaqSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
@@ -57,15 +57,15 @@ export default function FaqSection() {
   };
 
   return (
-    <section id="faqs" className="py-14 sm:py-16 bg-[#0B0B0B] text-white relative overflow-hidden border-t border-white/10">
+    <section id="faqs" className="py-14 sm:py-16 bg-[#050505] text-[#F2F4F7] relative overflow-hidden border-t border-white/10">
       {/* Background glow */}
-      <div className="absolute top-1/3 right-1/4 w-96 h-96 bg-[#FF5A1F]/10 rounded-full blur-[140px] pointer-events-none" />
+      <div className="absolute top-1/3 right-1/4 w-96 h-96 bg-[#FF8A00]/10 rounded-full blur-[140px] pointer-events-none" />
 
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Header */}
         <div className="text-center space-y-4 mb-8 sm:mb-10">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-black tracking-widest uppercase bg-[#FF5A1F]/10 border border-[#FF5A1F]/30 text-[#FF5A1F]">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-black tracking-widest uppercase bg-[#FF8A00]/10 border border-[#FF8A00]/30 text-[#FF8A00]">
             <span>FREQUENTLY ASKED QUESTIONS</span>
           </div>
 
@@ -86,7 +86,7 @@ export default function FaqSection() {
                 placeholder="Search questions (e.g. certificate, medical background, bundle)..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-white/5 border border-white/10 text-white placeholder-slate-400 text-xs sm:text-sm focus:outline-none focus:border-[#FF5A1F] transition-colors"
+                className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-[#0B0B0B] border border-white/10 text-white placeholder-slate-400 text-xs sm:text-sm focus:outline-none focus:border-[#FF8A00] transition-colors"
               />
             </div>
           </div>
@@ -96,7 +96,7 @@ export default function FaqSection() {
         <div className="space-y-3.5">
           {filteredFaqs.length === 0 ? (
             <div className="text-center py-12 text-slate-400 text-sm">
-              No matching questions found. Try typing another keyword or submit an enquiry below.
+              No matching questions found. Try typing another keyword or submit an enquiry above.
             </div>
           ) : (
             filteredFaqs.map((faq, idx) => {
@@ -107,8 +107,8 @@ export default function FaqSection() {
                   key={idx}
                   className={`rounded-2xl transition-all duration-300 border ${
                     isOpen
-                      ? "bg-white/[0.06] border-[#FF5A1F]/50 shadow-lg"
-                      : "bg-white/[0.025] border-white/10 hover:border-white/20"
+                      ? "bg-[#0D1B2A]/60 border-[#FF8A00]/50 shadow-lg"
+                      : "bg-[#0D1B2A]/25 border-white/10 hover:border-white/20"
                   }`}
                 >
                   <button
@@ -116,7 +116,7 @@ export default function FaqSection() {
                     className="w-full text-left p-5 sm:p-6 flex items-center justify-between gap-4 cursor-pointer"
                   >
                     <div className="flex items-center gap-3.5">
-                      <span className="text-xs font-mono font-bold text-[#FF5A1F] shrink-0">
+                      <span className="text-xs font-mono font-bold text-[#FF8A00] shrink-0">
                         {String(idx + 1).padStart(2, "0")}
                       </span>
                       <span className="text-base sm:text-lg font-bold text-white leading-snug">
@@ -127,7 +127,7 @@ export default function FaqSection() {
                     <div
                       className={`w-7 h-7 rounded-full flex items-center justify-center shrink-0 transition-transform duration-300 ${
                         isOpen
-                          ? "bg-[#FF5A1F] text-white rotate-180"
+                          ? "bg-[#FF8A00] text-white rotate-180"
                           : "bg-white/10 text-slate-400"
                       }`}
                     >

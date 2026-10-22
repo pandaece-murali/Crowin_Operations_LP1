@@ -1,19 +1,23 @@
 import type { Metadata, Viewport } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Poppins, Inter } from "next/font/google";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const poppins = Poppins({
+  variable: "--font-poppins",
   subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800", "900"],
+  display: "swap",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
+  display: "swap",
 });
 
 export const viewport: Viewport = {
-  themeColor: "#FF5A1F",
+  themeColor: "#FF8A00",
   width: "device-width",
   initialScale: 1,
   maximumScale: 5,
@@ -31,7 +35,8 @@ export const metadata: Metadata = {
     "Revenue Cycle Management Mastery",
     "Healthcare Billing Course",
     "RCM Certification",
-    "TPA Coordination"
+    "TPA Coordination",
+    "Content with Right Intent"
   ],
   icons: {
     icon: "https://cdn.edbound.app/public/05f7c860-a46a-4c3c-a4a1-0b4d951f5071/favicon/23042026/7pqa6.png",
@@ -39,7 +44,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Healthcare Revenue Operations Mastery | COWRIN",
     description:
-      "Learn how hospitals manage billing, process insurance claims, and handle the financial side of healthcare through one structured learning pathway.",
+      "Learn how hospitals manage billing, process insurance claims, and handle the financial side of healthcare through one structured learning pathway with COWRIN.",
     url: "https://www.cowrin.com/",
     siteName: "COWRIN",
     locale: "en_US",
@@ -53,7 +58,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${geistSans.variable} ${geistMono.variable} scroll-smooth antialiased`}>
+    <html
+      lang="en"
+      className={`${poppins.variable} ${inter.variable} scroll-smooth antialiased`}
+    >
       <head>
         {/* GoHighLevel (GHL) External Tracking Script */}
         <script
@@ -62,7 +70,7 @@ export default function RootLayout({
           data-debug="true"
         />
       </head>
-      <body className="min-h-screen flex flex-col bg-[#050505] text-white selection:bg-[#FF5A1F] selection:text-white">
+      <body className="min-h-screen flex flex-col bg-[#050505] text-[#F2F4F7] font-sans selection:bg-[#FF8A00] selection:text-white">
         {children}
       </body>
     </html>

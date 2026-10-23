@@ -2,7 +2,7 @@
 
 import React from "react";
 import Image from "next/image";
-import { ArrowRight, CheckCircle2, FileSpreadsheet, ShieldCheck, RefreshCw, AlertTriangle, DollarSign, BarChart3, Check, Gift } from "lucide-react";
+import { ArrowRight, CheckCircle2, FileSpreadsheet, ShieldCheck, RefreshCw, AlertTriangle, IndianRupee, BarChart3, Check, Gift } from "lucide-react";
 
 interface CurriculumBenefitsSectionProps {
   onEnquireBundle?: () => void;
@@ -54,7 +54,7 @@ export default function CurriculumBenefitsSection({
     {
       title: "Accounts Receivable",
       desc: "Learn what outstanding payments mean and how healthcare teams track amounts due.",
-      icon: DollarSign,
+      icon: IndianRupee,
       tag: "AR TRACKING",
     },
     {

@@ -33,15 +33,12 @@ export default function EnquiryForm({
   const courseOptions = [
     {
       name: "Hospital Billing Learning System",
-      badge: "01",
     },
     {
       name: "Health Insurance Specialist",
-      badge: "02",
     },
     {
       name: "Revenue Cycle Management Mastery",
-      badge: "03",
     },
     {
       name: "All Three Courses (Bundle)",

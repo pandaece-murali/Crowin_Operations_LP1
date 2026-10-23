@@ -1,24 +1,114 @@
 import { NextResponse } from "next/server";
 
+// In-memory rate limiting map: IP -> timestamp array
+const rateLimitMap = new Map<string, number[]>();
+
+// Clean up stale rate limit entries every 5 minutes
+if (typeof setInterval !== "undefined") {
+  setInterval(() => {
+    const now = Date.now();
+    for (const [ip, timestamps] of rateLimitMap.entries()) {
+      const recent = timestamps.filter((t) => now - t < 60000);
+      if (recent.length === 0) {
+        rateLimitMap.delete(ip);
+      } else {
+        rateLimitMap.set(ip, recent);
+      }
+    }
+  }, 300000);
+}
+
+function checkRateLimit(ip: string, limit = 8, windowMs = 60000): boolean {
+  const now = Date.now();
+  const timestamps = rateLimitMap.get(ip) || [];
+  const recent = timestamps.filter((t) => now - t < windowMs);
+
+  if (recent.length >= limit) {
+    return false;
+  }
+
+  recent.push(now);
+  rateLimitMap.set(ip, recent);
+  return true;
+}
+
+// Sanitize string input to prevent XSS / injection
+function sanitizeInput(str: unknown): string {
+  if (typeof str !== "string") return "";
+  return str.replace(/<[^>]*>/g, "").trim();
+}
+
+const EMAIL_REGEX = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+const PHONE_REGEX = /^[\d\s+\-().]{7,25}$/;
+
 export async function POST(request: Request) {
   try {
-    const body = await request.json();
-    const { fullName, email, phone, interestedCourse, message } = body;
+    // 1. IP-based Rate Limiting
+    const forwardedFor = request.headers.get("x-forwarded-for");
+    const ip = forwardedFor ? forwardedFor.split(",")[0].trim() : "127.0.0.1";
 
-    if (!fullName || !email || !phone) {
+    if (!checkRateLimit(ip)) {
       return NextResponse.json(
-        { error: "Full Name, Email, and Phone Number are required." },
+        { error: "Too many requests. Please wait a minute and try again." },
+        { status: 429 }
+      );
+    }
+
+    const body = await request.json().catch(() => null);
+    if (!body || typeof body !== "object") {
+      return NextResponse.json(
+        { error: "Invalid JSON payload" },
         { status: 400 }
       );
     }
 
-    // Split name into First & Last name for GoHighLevel fields
-    const nameParts = fullName.trim().split(" ");
-    const firstName = nameParts[0] || fullName;
-    const lastName = nameParts.slice(1).join(" ") || "";
+    const { fullName, email, phone, interestedCourse, message, hpField } = body;
 
     // Generate unique reference ID
     const refCode = `COW-${Math.floor(100000 + Math.random() * 900000)}`;
+
+    // 2. Honeypot check: If bot filled the hidden honeypot field, return early success
+    if (hpField && typeof hpField === "string" && hpField.trim().length > 0) {
+      console.warn("[Security] Bot honeypot triggered by IP:", ip);
+      return NextResponse.json({
+        success: true,
+        referenceId: refCode,
+        message: "Enquiry submitted successfully.",
+      });
+    }
+
+    // 3. Input Validation & Sanitization
+    const cleanFullName = sanitizeInput(fullName).slice(0, 100);
+    const cleanEmail = sanitizeInput(email).toLowerCase().slice(0, 100);
+    const cleanPhone = sanitizeInput(phone).slice(0, 30);
+    const cleanMessage = sanitizeInput(message).slice(0, 1000);
+    const cleanCourse = sanitizeInput(interestedCourse).slice(0, 100) || "All Three Courses (Bundle)";
+
+    if (!cleanFullName || cleanFullName.length < 2) {
+      return NextResponse.json(
+        { error: "Please provide a valid full name." },
+        { status: 400 }
+      );
+    }
+
+    if (!cleanEmail || !EMAIL_REGEX.test(cleanEmail)) {
+      return NextResponse.json(
+        { error: "Please provide a valid email address." },
+        { status: 400 }
+      );
+    }
+
+    if (!cleanPhone || !PHONE_REGEX.test(cleanPhone) || cleanPhone.replace(/\D/g, "").length < 7) {
+      return NextResponse.json(
+        { error: "Please provide a valid phone number (at least 7 digits)." },
+        { status: 400 }
+      );
+    }
+
+    // Split name into First & Last name for CRM / GoHighLevel fields
+    const nameParts = cleanFullName.split(" ");
+    const firstName = nameParts[0] || cleanFullName;
+    const lastName = nameParts.slice(1).join(" ") || "";
 
     // Read GHL Credentials from environment variables
     const ghlToken =
@@ -27,33 +117,31 @@ export async function POST(request: Request) {
       process.env.GHL_ACCESS_TOKEN;
     const ghlLocationId = process.env.GHL_LOCATION_ID;
 
-    const courseSelected = interestedCourse || "All Three Courses (Bundle)";
-
     // Custom fields mapping for GoHighLevel {{contact.course}}
     const customFields: Array<{ id?: string; key?: string; field_value?: string; value?: string }> = [
       {
         key: "contact.course",
-        field_value: courseSelected,
-        value: courseSelected,
+        field_value: cleanCourse,
+        value: cleanCourse,
       },
       {
         key: "course",
-        field_value: courseSelected,
-        value: courseSelected,
+        field_value: cleanCourse,
+        value: cleanCourse,
       },
     ];
 
-    if (message && message.trim()) {
+    if (cleanMessage) {
       customFields.push(
         {
           key: "contact.message",
-          field_value: message.trim(),
-          value: message.trim(),
+          field_value: cleanMessage,
+          value: cleanMessage,
         },
         {
           key: "message",
-          field_value: message.trim(),
-          value: message.trim(),
+          field_value: cleanMessage,
+          value: cleanMessage,
         }
       );
     }
@@ -62,8 +150,8 @@ export async function POST(request: Request) {
       customFields.push({
         id: process.env.GHL_COURSE_FIELD_ID,
         key: "contact.course",
-        field_value: courseSelected,
-        value: courseSelected,
+        field_value: cleanCourse,
+        value: cleanCourse,
       });
     }
 
@@ -72,12 +160,12 @@ export async function POST(request: Request) {
       locationId: ghlLocationId,
       firstName,
       lastName,
-      name: fullName,
-      email: email.trim().toLowerCase(),
-      phone: phone.trim(),
+      name: cleanFullName,
+      email: cleanEmail,
+      phone: cleanPhone,
       tags: [
         "Landing Page",
-        courseSelected,
+        cleanCourse,
       ],
       source: "Healthcare Revenue Operations LP1",
       customFields,
@@ -123,7 +211,7 @@ export async function POST(request: Request) {
                     "Content-Type": "application/json",
                   },
                   body: JSON.stringify({
-                    body: `COWRIN LP1 Enquiry Received\n• Program: ${courseSelected}\n• Message / Query: ${message ? message.trim() : "None"}\n• Reference ID: ${refCode}\n• Submitted At: ${new Date().toLocaleString()}`,
+                    body: `COWRIN LP1 Enquiry Received\n• Program: ${cleanCourse}\n• Message / Query: ${cleanMessage || "None"}\n• Reference ID: ${refCode}\n• Submitted At: ${new Date().toLocaleString()}`,
                   }),
                 }
               );

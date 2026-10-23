@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 import { Shield, ArrowRight, Gift } from "lucide-react";
 
@@ -18,14 +18,17 @@ export default function EnquiryForm({
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [interestedCourse, setInterestedCourse] = useState(initialCourse);
+  const [prevInitialCourse, setPrevInitialCourse] = useState(initialCourse);
   const [message, setMessage] = useState("");
+  const [hpField, setHpField] = useState(""); // Honeypot field for anti-spam bot protection
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
 
-  // Keep state in sync if external buttons pre-select a course
-  useEffect(() => {
-    if (initialCourse) setInterestedCourse(initialCourse);
-  }, [initialCourse]);
+  // Synchronize state when initialCourse prop changes (React recommended render adjustment)
+  if (initialCourse !== prevInitialCourse) {
+    setPrevInitialCourse(initialCourse);
+    setInterestedCourse(initialCourse);
+  }
 
   const courseOptions = [
     {
@@ -52,8 +55,24 @@ export default function EnquiryForm({
     e.preventDefault();
     setErrorMessage("");
 
-    if (!fullName || !email || !phone) {
+    const cleanName = fullName.trim();
+    const cleanEmail = email.trim();
+    const cleanPhone = phone.trim();
+
+    if (!cleanName || !cleanEmail || !cleanPhone) {
       setErrorMessage("Please fill in all required fields (Full Name, Email, and Phone Number).");
+      return;
+    }
+
+    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    if (!emailRegex.test(cleanEmail)) {
+      setErrorMessage("Please enter a valid email address.");
+      return;
+    }
+
+    const phoneDigits = cleanPhone.replace(/\D/g, "");
+    if (phoneDigits.length < 7) {
+      setErrorMessage("Please enter a valid phone number with at least 7 digits.");
       return;
     }
 
@@ -69,33 +88,34 @@ export default function EnquiryForm({
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          fullName,
-          email,
-          phone,
+          fullName: cleanName,
+          email: cleanEmail,
+          phone: cleanPhone,
           interestedCourse,
-          message,
+          message: message.trim(),
+          hpField, // Anti-bot honeypot
         }),
       });
 
       // 2. Ensure external-tracking.js has a small buffer to complete its POST /external-tracking/events network request
-      const bufferPromise = new Promise((resolve) => setTimeout(resolve, 650));
+      const bufferPromise = new Promise((resolve) => setTimeout(resolve, 600));
 
       const [res] = await Promise.all([apiPromise, bufferPromise]);
       const data = await res.json().catch(() => null);
-      const refId = (res.ok && data?.referenceId) ? data.referenceId : fallbackRef;
+      const refId = res.ok && data?.referenceId ? data.referenceId : fallbackRef;
 
       // Direct redirection to Thank You page
-      window.location.assign(
+      router.push(
         `/thank-you?ref=${encodeURIComponent(refId)}&name=${encodeURIComponent(
-          fullName
+          cleanName
         )}&course=${encodeURIComponent(interestedCourse)}`
       );
     } catch (err) {
       console.error("Submission error:", err);
-      // Redirect to Thank You page even if backend fails
-      window.location.assign(
+      // Redirect to Thank You page even if network issue occurs
+      router.push(
         `/thank-you?ref=${encodeURIComponent(fallbackRef)}&name=${encodeURIComponent(
-          fullName
+          cleanName
         )}&course=${encodeURIComponent(interestedCourse)}`
       );
     }
@@ -118,6 +138,20 @@ export default function EnquiryForm({
         onSubmit={handleSubmit}
         className="space-y-4"
       >
+        {/* Anti-bot honeypot field: invisible to real users, traps automated scrapers */}
+        <div className="hidden pointer-events-none opacity-0 h-0 overflow-hidden" aria-hidden="true">
+          <label htmlFor="cowrin-fax-code">Do not fill this field</label>
+          <input
+            id="cowrin-fax-code"
+            type="text"
+            name="fax_check_field"
+            tabIndex={-1}
+            value={hpField}
+            onChange={(e) => setHpField(e.target.value)}
+            autoComplete="off"
+          />
+        </div>
+
         {/* Hidden field for GHL external tracking script contact mapping */}
         <input type="hidden" name="course" value={interestedCourse} />
 
@@ -152,6 +186,7 @@ export default function EnquiryForm({
             name="name"
             type="text"
             required
+            maxLength={80}
             autoComplete="name"
             value={fullName}
             onChange={(e) => setFullName(e.target.value)}
@@ -170,6 +205,7 @@ export default function EnquiryForm({
             name="email"
             type="email"
             required
+            maxLength={100}
             autoComplete="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
@@ -188,6 +224,7 @@ export default function EnquiryForm({
             name="phone"
             type="tel"
             required
+            maxLength={25}
             autoComplete="tel"
             value={phone}
             onChange={(e) => setPhone(e.target.value)}
@@ -264,6 +301,7 @@ export default function EnquiryForm({
             id="cowrin-message"
             name="message"
             rows={2}
+            maxLength={1000}
             value={message}
             onChange={(e) => setMessage(e.target.value)}
             placeholder="Have questions about fees, batch timings, or syllabus? Write here..."

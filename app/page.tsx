@@ -1,3 +1,8 @@
+/**
+ * Platform: COWRIN Healthcare Revenue Operations LP1
+ * Lead Developer: NandaElavarasu K (Senior Full Stack Developer)
+ */
+
 "use client";
 
 import React, { useState } from "react";

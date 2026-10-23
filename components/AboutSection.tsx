@@ -75,7 +75,7 @@ export default function AboutSection({ onLearnMore }: AboutSectionProps) {
 
             <div className="pt-2">
               <button
-                onClick={() => scrollTo("courses")}
+                onClick={onLearnMore || (() => scrollTo("courses"))}
                 className="px-6 py-3.5 rounded-xl font-bold text-sm tracking-wide text-white transition-all flex items-center gap-2 cursor-pointer shadow-lg hover:scale-105 active:scale-95"
                 style={{
                   background: "linear-gradient(135deg, #FF8A00, #E07A00)",

@@ -127,7 +127,7 @@ export default function Navbar({ onEnquireClick }: NavbarProps) {
               onClick={() => scrollTo("courses")}
               className="text-left py-2 border-b border-white/5 hover:text-[#FF8A00]"
             >
-              The 3 Courses
+              Our Courses
             </button>
             <button
               onClick={() => scrollTo("curriculum")}

@@ -38,11 +38,11 @@ export default function StickyBottomCta({ onEnquireClick }: StickyBottomCtaProps
                 Healthcare Revenue Operations Mastery
               </span>
               <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-black uppercase tracking-wider bg-[#FF8A00] text-white shadow-xs shrink-0">
-                <Gift className="w-3 h-3 shrink-0" /> FREE MT&amp;A COURSE
+                <Gift className="w-3 h-3 shrink-0" /> FREE COURSE
               </span>
             </div>
             <p className="text-[11px] text-slate-300 truncate mt-0.5">
-              🎁 Includes <strong className="text-white">Human Anatomy &amp; Medical Terminology</strong> course 100% FREE with enrolment
+              Includes <strong className="text-white">Medical Terminology &amp; Human Anatomy</strong> course 100% FREE with enrolment
             </p>
           </div>
         </div>
@@ -51,14 +51,14 @@ export default function StickyBottomCta({ onEnquireClick }: StickyBottomCtaProps
         <div className="w-full sm:w-auto shrink-0 flex justify-center">
           <button
             onClick={onEnquireClick}
-            className="w-full sm:w-auto px-5 sm:px-8 py-2.5 sm:py-3 rounded-xl font-black text-xs sm:text-sm tracking-wider uppercase text-white transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer shadow-lg hover:scale-105 active:scale-95"
+            className="w-full sm:w-auto px-4 sm:px-7 py-2.5 sm:py-3 rounded-xl font-bold text-xs sm:text-sm text-white transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer shadow-lg hover:scale-105 active:scale-95"
             style={{
               background: "linear-gradient(135deg, #FF8A00, #E07A00)",
               boxShadow: "0 8px 25px rgba(255, 138, 0, 0.45)",
             }}
           >
-            <span>ENQUIRE NOW</span>
-            <ArrowRight className="w-4 h-4" />
+            <span className="leading-tight text-center">Enquire Now to Find the Right Program</span>
+            <ArrowRight className="w-4 h-4 shrink-0" />
           </button>
         </div>
 

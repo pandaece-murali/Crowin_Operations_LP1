@@ -39,7 +39,9 @@ export const metadata: Metadata = {
     "Content with Right Intent"
   ],
   icons: {
-    icon: "https://cdn.edbound.app/public/05f7c860-a46a-4c3c-a4a1-0b4d951f5071/favicon/23042026/7pqa6.png",
+    icon: "/images/ICON ONLY.png",
+    shortcut: "/images/ICON ONLY.png",
+    apple: "/images/ICON ONLY.png",
   },
   openGraph: {
     title: "Healthcare Revenue Operations Mastery | COWRIN",
@@ -63,6 +65,9 @@ export default function RootLayout({
       className={`${poppins.variable} ${inter.variable} scroll-smooth antialiased`}
     >
       <head>
+        <link rel="icon" href="/images/ICON ONLY.png" type="image/png" />
+        <link rel="shortcut icon" href="/images/ICON ONLY.png" type="image/png" />
+        <link rel="apple-touch-icon" href="/images/ICON ONLY.png" />
         {/* GoHighLevel (GHL) External Tracking Script */}
         <script
           src="https://link.pandaece.com/js/external-tracking.js"

@@ -67,8 +67,8 @@ export default function CurriculumBenefitsSection({
 
   const pathwayBenefits = [
     {
-      bold: "Complimentary MT&A Course Included",
-      text: "Enrol in even a single course and receive our Human Anatomy & Medical Terminology course 100% free.",
+      bold: "Free Medical Terminology & Human Anatomy Course",
+      text: "Enrol in even a single course and receive our Medical Terminology & Human Anatomy course 100% free.",
       highlight: true,
     },
     {

@@ -14,22 +14,28 @@ export default function Footer() {
 
   return (
     <footer className="bg-[#050505] text-slate-400 text-xs border-t border-white/10 pt-12 sm:pt-14 pb-24 sm:pb-20">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6 sm:space-y-8">
         
-        {/* Main Footer Row */}
+        {/* Top Logo */}
+        <div className="flex items-center">
+          <Image
+            src="/images/cowrin-logo.webp"
+            alt="COWRIN - Content with Right Intent"
+            width={160}
+            height={40}
+            style={{ width: "auto" }}
+            className="h-8 sm:h-9 w-auto object-contain filter brightness-110"
+          />
+        </div>
+
+        {/* Main Footer Row: 3 Columns Below */}
         <div className="grid grid-cols-1 md:grid-cols-12 gap-10 lg:gap-12 items-start">
           
-          {/* Brand Info */}
-          <div className="md:col-span-5 space-y-4">
-            <div className="flex items-start">
-              <Image
-                src="/images/cowrin-logo.webp"
-                alt="COWRIN - Content with Right Intent"
-                width={160}
-                height={40}
-                className="h-8 sm:h-9 w-auto object-contain filter brightness-110"
-              />
-            </div>
+          {/* Column 1: Brand Info */}
+          <div className="md:col-span-5 space-y-3">
+            <h4 className="text-white text-xs font-bold uppercase tracking-wider font-heading">
+              ABOUT COWRIN
+            </h4>
             <p className="text-slate-400 text-sm max-w-sm leading-relaxed">
               COWRIN offers career-focused learning programs designed to help learners understand essential healthcare operations, hospital billing workflows, and revenue cycle management.
             </p>
@@ -50,7 +56,7 @@ export default function Footer() {
           {/* Programs Navigation */}
           <div className="md:col-span-4 space-y-3">
             <h4 className="text-white text-xs font-bold uppercase tracking-wider font-heading">
-              Specialized Programs
+              SPECIALIZED PROGRAMS
             </h4>
             <ul className="space-y-2 text-slate-400 text-xs">
               <li>
@@ -91,7 +97,7 @@ export default function Footer() {
           {/* Quick On-Page Links */}
           <div className="md:col-span-3 space-y-3">
             <h4 className="text-white text-xs font-bold uppercase tracking-wider font-heading">
-              Quick Navigation
+              QUICK NAVIGATION
             </h4>
             <ul className="space-y-2 text-slate-400 text-xs">
               <li>

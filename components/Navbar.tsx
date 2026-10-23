@@ -43,6 +43,7 @@ export default function Navbar({ onEnquireClick }: NavbarProps) {
               alt="COWRIN - Content with Right Intent"
               width={180}
               height={44}
+              style={{ width: "auto" }}
               className="object-contain filter brightness-110"
               priority
             />

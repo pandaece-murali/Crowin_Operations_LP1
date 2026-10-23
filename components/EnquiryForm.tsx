@@ -131,7 +131,7 @@ export default function EnquiryForm({
           </p>
           <div className="pt-1.5 flex items-center gap-1.5 text-xs font-semibold text-[#FF8A00] leading-snug">
             <Gift className="w-3.5 h-3.5 shrink-0" />
-            <span>Get a complimentary Human Anatomy &amp; Medical Terminology course with your purchase.</span>
+            <span>Get a complimentary Medical Terminology &amp; Human Anatomy course with your purchase.</span>
           </div>
         </div>
 
